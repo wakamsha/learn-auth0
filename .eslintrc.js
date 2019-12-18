@@ -19,11 +19,7 @@ module.exports = {
   },
 
   // https://github.com/eslint/eslint/blob/45aa6a3ba3486f1b116c5daab6432d144e5ea574/docs/user-guide/configuring.md#configuring-plugins
-  plugins: [
-    'react',
-    'react-hooks',
-    // 'sort-imports-es6-autofix'
-  ],
+  plugins: ['react', 'react-hooks', 'sort-imports-es6-autofix'],
 
   rules: {
     // Enable
@@ -56,14 +52,14 @@ module.exports = {
     'react/sort-comp': ['error'],
     'react-hooks/exhaustive-deps': 'warn',
     'react-hooks/rules-of-hooks': 'error',
-    // 'sort-imports-es6-autofix/sort-imports-es6': [
-    //   'error',
-    //   {
-    //     ignoreCase: false,
-    //     ignoreMemberSort: false,
-    //     memberSyntaxSortOrder: ['none', 'all', 'multiple', 'single'],
-    //   },
-    // ],
+    'sort-imports-es6-autofix/sort-imports-es6': [
+      'error',
+      {
+        ignoreCase: false,
+        ignoreMemberSort: false,
+        memberSyntaxSortOrder: ['none', 'all', 'multiple', 'single'],
+      },
+    ],
 
     // Disable
     '@typescript-eslint/camelcase': ['off'], // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/camelcase.md
@@ -72,8 +68,7 @@ module.exports = {
     'import/extensions': ['off'],
     'import/no-extraneous-dependencies': ['off'], // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-extraneous-dependencies.md
     'import/no-unresolved': ['off'], // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-unresolved.md
-    // 'import/order': ['off'],
-    'import/order': ['error', { groups: ['index', 'sibling', 'parent', 'internal', 'external', 'builtin'] }],
+    'import/order': ['off'],
     'import/prefer-default-export': ['off'], // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/prefer-default-export.md
     'jsx-a11y/accessible-emoji': ['off'], // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/accessible-emoji.md
     'jsx-a11y/control-has-associated-label': ['off'], // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/control-has-associated-label.md

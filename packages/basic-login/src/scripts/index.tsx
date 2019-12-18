@@ -1,7 +1,7 @@
-import { Auth0Provider } from './AuthClient';
-import { App } from './bootstraps/App';
-import { createBrowserHistory } from 'history';
 import * as React from 'react';
+import { App } from './bootstraps/App';
+import { Auth0Provider } from './AuthClient';
+import { createBrowserHistory } from 'history';
 import { render } from 'react-dom';
 
 const config = {
