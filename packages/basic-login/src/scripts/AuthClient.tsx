@@ -1,6 +1,6 @@
-import * as React from 'react';
-import Auth0Client from '@auth0/auth0-spa-js/dist/typings/Auth0Client';
 import createAuth0Client from '@auth0/auth0-spa-js';
+import Auth0Client from '@auth0/auth0-spa-js/dist/typings/Auth0Client';
+import * as React from 'react';
 
 type Props = {
   children: React.ReactNode;

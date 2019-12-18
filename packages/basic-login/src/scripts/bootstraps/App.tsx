@@ -1,11 +1,11 @@
-import * as React from 'react';
+import { useAuth0 } from '../AuthClient';
 import { GlobalHeader } from '../components/GlobalHeader';
-import { Home } from '../pages/Home';
 import { PrivateRoute } from '../components/PrivateRoute';
+import { Home } from '../pages/Home';
 import { Profile } from '../pages/Profile';
 import { Route, Router, Switch } from 'react-router-dom';
+import * as React from 'react';
 import { history } from '..';
-import { useAuth0 } from '../AuthClient';
 
 export const App = () => {
   const { loading } = useAuth0();
