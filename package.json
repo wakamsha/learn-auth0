@@ -1,0 +1,62 @@
+{
+  "name": "auth0-study",
+  "version": "1.0.0",
+  "repository": "git@github.com:wakamsha/auth0-study.git",
+  "author": "wakamsha <wakamsha@gmail.com>",
+  "license": "UNLICENSED",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "devDependencies": {
+    "@types/history": "^4.7.3",
+    "@types/react": "^16.9.16",
+    "@types/react-dom": "^16.9.4",
+    "@types/react-router-dom": "^5.1.3",
+    "@typescript-eslint/eslint-plugin": "^2.12.0",
+    "@typescript-eslint/parser": "^2.12.0",
+    "browser-sync": "^2.26.7",
+    "connect-modrewrite": "^0.10.2",
+    "eslint": "^6.7.2",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-config-prettier": "^6.7.0",
+    "eslint-plugin-import": "^2.19.1",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-react": "^7.17.0",
+    "eslint-plugin-react-hooks": "^2.3.0",
+    "eslint-plugin-sort-imports-es6-autofix": "^0.5.0",
+    "husky": "^3.1.0",
+    "lint-staged": "^9.5.0",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^1.19.1",
+    "ts-loader": "^6.2.1",
+    "typescript": "^3.7.3",
+    "webpack": "^4.41.3",
+    "webpack-cli": "^3.3.10",
+    "yargs": "^15.0.2"
+  },
+  "dependencies": {
+    "@auth0/auth0-spa-js": "^1.6.0",
+    "emotion": "^10.0.23",
+    "history": "^4.10.1",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-router-dom": "^5.1.2"
+  },
+  "lint-staged": {
+    "packages/**/src/**/*.tsx": [
+      "eslint -c .eslintrc.js --fix",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "scripts": {
+    "format": "yarn eslint -c .eslintrc.json --fix packages/**/*.{ts,tsx}",
+    "basic-login": "yarn workspace @auth0-study/basic-login"
+  }
+}
