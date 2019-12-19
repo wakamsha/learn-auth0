@@ -7,7 +7,7 @@ type Props = {
   domain: string;
   clientId: string;
   redirectUri: string;
-  onRedirectCallback: (appState?: any) => void;
+  onRedirectCallback?: (appState?: any) => void;
 };
 
 type User = {
@@ -46,7 +46,7 @@ export const Auth0Provider = ({ children, domain, clientId, redirectUri, onRedir
 
       if (window.location.search.includes('code=')) {
         const { appState } = await auth0FromHook.handleRedirectCallback();
-        onRedirectCallback(appState);
+        onRedirectCallback?.(appState);
       }
 
       const authenticated = await auth0FromHook.isAuthenticated();

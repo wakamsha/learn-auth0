@@ -1,6 +1,7 @@
 import * as React from 'react';
-import { App } from './bootstraps/App';
-import { Auth0Provider } from './AuthClient';
+import { Auth0Provider, useAuth0 } from './AuthClient';
+import { Guest } from './bootstraps/Guest';
+import { Member } from './bootstraps/Member';
 import { createBrowserHistory } from 'history';
 import { render } from 'react-dom';
 
@@ -11,16 +12,27 @@ const config = {
 
 export const history = createBrowserHistory();
 
-const onRedirectCallback = (appState?: any) => history.push(appState?.targetUrl || window.location.pathname);
+const Some = () => {
+  const { authenticated } = useAuth0();
+  return authenticated ? <Member /> : <Guest />;
+};
 
-render(
-  <Auth0Provider
-    domain={config.domain}
-    clientId={config.clientId}
-    redirectUri={window.location.origin}
-    onRedirectCallback={onRedirectCallback}
-  >
-    <App />
-  </Auth0Provider>,
-  document.getElementById('app'),
-);
+const App = () => {
+  const { loading } = useAuth0();
+  const onRedirectCallback = (appState?: any) => history.push(appState?.targetUrl || window.location.pathname);
+
+  return loading ? (
+    <div>おまちください</div>
+  ) : (
+    <Auth0Provider
+      domain={config.domain}
+      clientId={config.clientId}
+      redirectUri={window.location.origin}
+      onRedirectCallback={onRedirectCallback}
+    >
+      <Some />
+    </Auth0Provider>
+  );
+};
+
+render(<App />, document.getElementById('app'));

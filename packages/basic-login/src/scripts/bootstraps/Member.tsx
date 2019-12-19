@@ -1,13 +1,12 @@
 import * as React from 'react';
 import { GlobalHeader } from '../components/GlobalHeader';
-import { Home } from '../pages/Home';
-import { PrivateRoute } from '../components/PrivateRoute';
+import { HomePage } from '../pages/Home';
 import { Profile } from '../pages/Profile';
 import { Route, Router, Switch } from 'react-router-dom';
 import { history } from '..';
 import { useAuth0 } from '../AuthClient';
 
-export const App = () => {
+export const Member = () => {
   const { loading } = useAuth0();
 
   return loading ? (
@@ -17,8 +16,9 @@ export const App = () => {
       <GlobalHeader />
       <Router history={history}>
         <Switch>
-          <Route path="/" component={Home} exact />
-          <PrivateRoute path="/profile" component={Profile} />
+          <Route path="/" component={HomePage} exact />
+          <Route path="/profile" component={Profile} />
+          <Route render={() => <div>Not found 🤕</div>} />
         </Switch>
       </Router>
     </>
