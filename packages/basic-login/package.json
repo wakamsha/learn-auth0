@@ -1,5 +1,5 @@
 {
-  "name": "@auth0-study/basic-login",
+  "name": "@learn-auth0/basic-login",
   "version": "0.0.0",
   "scripts": {
     "reset": "rm -rf dist/; mkdir -p dist/assets/",
